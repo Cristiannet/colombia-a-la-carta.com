@@ -3,7 +3,6 @@ Integrantes
 *****************************
 Leidy Johanna González García
 Juliana Lorena Escarraga Caicedo
-Ana 
 Cristian david bernal prieto
 Ana Cristina Lizarazo Páez
 
