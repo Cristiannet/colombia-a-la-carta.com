@@ -1,0 +1,130 @@
+
+/* ========================================
+   1. COLORES Y CONFIGURACION GENERAL
+======================================== */
+
+:root {
+    --crema: #F8F0E3;
+    --cafe: #75452F;
+    --caramelo: #DDA15E;
+    --oliva: #606C38;
+    --blanco: #FFFFFF;
+    --texto: #3D332C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--crema);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* ========================================
+   2. MENU DE NAVEGACION
+======================================== */
+
+header {
+    background-color: var(--cafe);
+    color: var(--blanco);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.marca {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--caramelo);
+}
+
+/* ========================================
+   3. ESTILOS GENERALES DE LAS SECCIONES
+======================================== */
+
+section {
+    padding: 80px 7%;
+    scroll-margin-top: 85px;
+}
+
+h1, h2, h3 {
+    color: var(--cafe);
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+/* ========================================
+   4. PIE DE PAGINA
+======================================== */
+
+footer {
+    background-color: var(--cafe);
+    color: var(--blanco);
+    padding: 30px 7%;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 8px;
+}
+
+/* ========================================
+   5. ADAPTACION A CELULARES
+======================================== */
+
+@media (max-width: 700px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    section {
+        padding: 50px 6%;
+    }
+
+    .marca {
+        font-size: 1.2rem;
+    }
+}
