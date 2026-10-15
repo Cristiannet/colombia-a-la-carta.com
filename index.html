@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colombia A La Carta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -20,7 +23,7 @@
             <a href="#inicio">Inicio</a>
             <a href="#recetas">Recetas</a>
             <a href="#nosotros">Quiénes somos</a>
-            <a href="#contáctanos">Contáctanos</a>
+            <a href="#contacto">Contáctanos</a>
         </nav>
 
     </header>
@@ -29,10 +32,8 @@
         <!-- SECCIÓN 1: INICIO -->
         <section id="inicio">
             
-<section id="inicio">
-
-    <div class="contenido-inicio">
-        <h1>Colombia a la carta. Servida con todo su sabor.</h1>
+        <div class="contenido-inicio">
+        <h1>Colombia a la carta.</h1>
 
         <p class="intro">
             Descubre los sabores de nuestra tierra a través de recetas
@@ -46,35 +47,52 @@
         </a>
     </div>
 
-    <img
-        class="foto"
-        src="https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/09/comida-costena-colombiana-1758536303.jpg"
-        alt="Platos tradicionales de la gastronomía colombiana"
-    >
+    
 
 
 
-            <h1>Colombia a la carta. Servida con todo su sabor.</h1>
-            <p class="intro">
-                Descubre los sabores de nuestra tierra a través de recetas
-                <strong>tradicionales colombianas</strong>, preparadas con
-                ingredientes auténticos y mucho amor, <em>como en casa</em>.
-            </p>
-            <img class="foto"
-                src="https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/09/comida-costena-colombiana-1758536303.jpg"
-                alt="Diferentes platos de comidas típicas colombianas">
+</section>
+         
+        <section id="pasos">
+            <h2>Cocina con nosotros en 4 pasos</h2>
+            <ol class="pasos">
+                <li class="paso">
+                    <div class="paso-icono"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
+                    <div class="paso-numero">1</div>
+                    <p>Elige tu receta favorita</p>
+                </li>
+                <li class="paso">
+                    <div class="paso-icono"><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i></div>
+                    <div class="paso-numero">2</div>
+                    <p>Reúne los ingredientes</p>
+                </li>
+                <li class="paso">
+                    <div class="paso-icono"><i class="fa-solid fa-fire-burner" aria-hidden="true"></i></div>
+                    <div class="paso-numero">3</div>
+                    <p>Prepara paso a paso</p>
+                </li>
+                <li class="paso">
+                    <div class="paso-icono"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+                    <div class="paso-numero">4</div>
+                    <p>Sirve y comparte en casa</p>
+                </li>
+            </ol>
         </section>
 
-        <!-- SECCIÓN 2: NOSOTROS -->
-        <section id="nosotros">
+        <!-- SECCIÓN 3: RECETAS -->
+        
+        <section id="recetas">
+            <h2>Recetas disponibles</h2>
+            <ul id="receta" class="receta"></ul>
+        </section>
+
+    <!-- SECCIÓN 2: NOSOTROS -->
+    <section id="nosotros">
             
-<section id="nosotros">
 
     <div class="contenido-nosotros">
 
         <div class="texto-nosotros">
-
-            <p class="subtitulo">SOBRE NOSOTROS</p>
 
             <h2>Sabores que cuentan historias</h2>
 
@@ -98,8 +116,12 @@
             </p>
 
         </div>
+         
+        <img class="imagen-circular"
+        src="https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/09/comida-costena-colombiana-1758536303.jpg"
+        alt="Platos tradicionales de la gastronomía colombiana">
 
-        <div class="tarjeta-agencia">
+        <div class="tarjeta-agencia">            
 
             <h3>ALTA TECH AGENCY</h3>
 
@@ -118,36 +140,39 @@
             <div class="equipo">
                 <h3>Nuestro equipo</h3>
 
-                <p>👩‍💻 Product Owner</p>
-                <p>🧑‍💻 Scrum Master</p>
-                <p>👩‍💻 Desarrollador/a</p>
-                <p>🧑‍💻 Desarrollador/a Senior</p>
+                <div class="miembro">
+                    <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+                    Product Owner
+                </div>
+                <div class="miembro">
+                    <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+                    Scrum Master
+                </div>
+                <div class="miembro">
+                    <i class="fa-solid fa-code" aria-hidden="true"></i>
+                    Desarrollador/a
+                </div>
+                <div class="miembro">
+                    <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+                    Desarrollador/a Senior
+                </div>
             </div>
+
 
         </div>
 
     </div>
 
-</section>
-
-
-        </section>
-
-        <!-- SECCIÓN 3: RECETAS -->
-        
-        <section id="recetas">
-            <h2>Recetas disponibles</h2>
-            <ul id="receta" class="receta"></ul>
-        </section>
+    </section>
 
     </main>
     <!--VISÍTANOS -->
-    <footer id="Contáctanos">
+    <footer id="contacto">
         <p>
             Hecho con <i class="fa-solid fa-heart"></i> en Colombia.
         </p>
 
-        <small>© 2026 Colombia a la carta. Proyecto de clase.</small>
+        <small>© 2026 Colombia a la carta.</small>
         <div class="redes-sociales">
             <a href="#" aria-label="Instagram">
                 <i class="fa-brands fa-instagram"></i>
@@ -160,11 +185,11 @@
             <a href="#" aria-label="TikTok">
                 <i class="fa-brands fa-tiktok"></i>
             </a>
-            <a href="#" aria-label="Gmail">
-                <i class="fa-solid fa-envelope-heart"> contacto@colombiaalacarta.com</i>
+            <a href="mailto:contacto@colombiaalacarta.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>contacto@colombiaalacarta.com
             </a>
-            <a href="#" aria-label="celular">
-                <i class="fa-solid fa-phone">3203203230</i>
+            <a href="tel:+573203203230">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>320 320 3230
             </a>
         </div>
 
