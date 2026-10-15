@@ -1,131 +1,103 @@
-
-/* ========================================
-   1. COLORES Y CONFIGURACION GENERAL
-======================================== */
-
+/* ===== COLORES Y LETRAS: se definen una vez y se reutilizan con var(--nombre) ===== */
 :root {
-    --crema: #F8F0E3;
-    --cafe: #75452F;
-    --caramelo: #DDA15E;
-    --oliva: #606C38;
-    --blanco: #FFFFFF;
-    --texto: #3D332C;
+    --rosado: #f6d3d6;
+    --rosado-fuerte: #e9a3ab;
+    --verde: #16a34a;
+    --verde-oscuro: #15803d;
+    --menta: #e6f8e8;
+    --blanco: #ffffff;
+    --texto: #2a2a2a;
+    --texto-suave: #5a5a5a;
+    --fuente-titulo: "Yellowtail", cursive;
+    --fuente-encabezado: "Merriweather", Georgia, serif;
+    --fuente-texto: "Open Sans", Arial, sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===== BASE: reglas generales de toda la página ===== */
+*, *::before, *::after { box-sizing: border-box; }  /* el borde y el relleno cuentan dentro del tamaño */
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }  /* desplazamiento suave y espacio para el menú fijo */
+body { margin: 0; font-family: var(--fuente-texto); color: var(--texto); background: var(--blanco); line-height: 1.6; }
+img { max-width: 100%; display: block; }  /* las imágenes nunca se salen de su espacio */
+a:focus-visible, .boton-recetas:focus-visible, .preparacion summary:focus-visible { outline: 3px solid var(--verde-oscuro); outline-offset: 3px; }  /* contorno al navegar con teclado */
+
+/* ===== MENÚ SUPERIOR: queda fijo arriba al bajar la página ===== */
+header { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding: 12px 5%; background: rgba(255, 255, 255, 0.95); border-bottom: 1px solid var(--rosado); }
+.marca { font-family: var(--fuente-titulo); font-size: 1.9rem; color: var(--verde-oscuro); text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+nav a { color: var(--texto); text-decoration: none; font-weight: 600; padding: 4px 0; border-bottom: 2px solid transparent; }
+nav a:hover { color: var(--verde-oscuro); border-bottom-color: var(--verde); }  /* al pasar el mouse: se subraya en verde */
+
+/* ===== SECCIONES: espacio y título comunes a todas ===== */
+section { padding: 72px 5%; }
+h2 { font-family: var(--fuente-encabezado); font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.25; text-align: center; margin: 0 0 40px; }  /* clamp: el tamaño se adapta a la pantalla */
+
+/* ===== INICIO: foto de fondo con una capa oscura para que el texto blanco se lea ===== */
+#inicio {
+    min-height: 82vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 5%;
+    background: linear-gradient(rgba(70, 25, 35, 0.40), rgba(70, 25, 35, 0.40)), url("https://cdn.blog.paulinacocina.net/wp-content/uploads/2025/09/comida-costena-colombiana-1758536303.jpg") center / cover no-repeat;
+    background-color: var(--rosado);
+}
+.contenido-inicio { max-width: 760px; color: var(--blanco); }
+.contenido-inicio h1 { font-family: var(--fuente-titulo); font-weight: 400; font-size: clamp(3rem, 9vw, 5.5rem); line-height: 1.05; margin: 0 0 20px; text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35); }
+.intro { font-family: var(--fuente-encabezado); font-size: clamp(1.05rem, 2vw, 1.3rem); margin: 0 auto 28px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); }
+.boton-recetas { display: inline-block; padding: 12px 28px; border-radius: 4px; background: var(--verde-oscuro); color: var(--blanco); font-weight: 700; text-decoration: none; }
+.boton-recetas:hover { background: var(--verde); }
+
+/* ===== PASOS: 4 columnas que se acomodan solas según el ancho de la pantalla ===== */
+.pasos { list-style: none; margin: 0 auto; padding: 0; max-width: 1000px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 32px; }
+.paso { text-align: center; }
+.paso-icono { width: 120px; height: 120px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; font-size: 2.6rem; color: var(--verde-oscuro); background: var(--rosado); border: 6px solid var(--blanco); box-shadow: 0 0 0 2px var(--rosado-fuerte); }  /* border-radius 50% = círculo */
+.paso-numero { width: 36px; height: 36px; margin: 0 auto 10px; border-radius: 50%; display: grid; place-items: center; background: var(--verde); color: var(--blanco); font-weight: 700; font-size: 1.1rem; }
+.paso p { margin: 0; font-size: 0.95rem; color: var(--texto-suave); }
+
+/* ===== RECETAS: fondo menta y tarjetas en cuadrícula (se crean desde app.js) ===== */
+#recetas { background: var(--menta); }
+.receta { list-style: none; margin: 0 auto; padding: 0; max-width: 1200px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+.producto { background: var(--blanco); border-radius: 14px; border: 1px solid #cfeed4; padding: 28px 24px; text-align: center; }
+.contenido-receta h3 { font-family: var(--fuente-encabezado); font-size: 1.3rem; margin: 0 0 16px; }
+.imagen-receta { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; margin: 0 auto 18px; border: 5px solid var(--rosado); }  /* object-fit: la foto se recorta sin deformarse */
+.contenido-receta p { margin: 0 0 10px; font-size: 0.95rem; }
+.contenido-receta strong { color: var(--verde-oscuro); }
+.contenido-receta ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }  /* ingredientes en fila */
+.contenido-receta ul li { background: var(--rosado); border-radius: 999px; padding: 2px 12px; font-size: 0.82rem; }  /* cada ingrediente como "pastilla" */
+/* Preparación: desplegable "Ver preparación" */
+.preparacion { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rosado); text-align: left; }
+.preparacion summary { cursor: pointer; font-weight: 700; color: var(--verde-oscuro); text-align: center; }
+.preparacion ol { margin: 12px 0 0; padding-left: 22px; font-size: 0.9rem; color: var(--texto-suave); }
+.preparacion li { margin-bottom: 6px; }
+
+/* ===== NOSOTROS: 2 columnas (texto e imagen) y la tarjeta de la agencia ocupa todo el ancho ===== */
+.contenido-nosotros { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.texto-nosotros h2 { text-align: left; margin-bottom: 20px; }
+.texto-nosotros p { margin: 0 0 14px; max-width: 60ch; }  /* líneas no muy largas para leer cómodo */
+.imagen-circular { width: min(100%, 420px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; margin: 0 auto; border: 8px solid var(--rosado); }
+.tarjeta-agencia { grid-column: 1 / -1; justify-self: center; width: 100%; max-width: 860px; background: var(--rosado); border-radius: 24px; padding: 40px 32px; text-align: center; }  /* grid-column: 1 / -1 = abarca todas las columnas */
+.tarjeta-agencia h3 { font-family: var(--fuente-encabezado); font-weight: 700; font-size: 1.5rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--verde-oscuro); margin: 0 0 14px; }
+.tarjeta-agencia p { max-width: 62ch; margin: 0 auto 12px; }
+/* Equipo: íconos centrados; si uno baja a otra fila, también queda al centro */
+.equipo { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--rosado-fuerte); display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 28px; }
+.equipo h3 { flex: 0 0 100%; font-size: 1.15rem; text-transform: none; letter-spacing: normal; color: var(--texto); margin: 0; }  /* quita las mayúsculas heredadas del título de arriba */
+.miembro { width: 130px; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+.miembro i { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-size: 1.1rem; color: var(--verde-oscuro); background: var(--blanco); box-shadow: 0 0 0 2px var(--rosado-fuerte); }
+
+/* ===== FOOTER: fondo verde con los datos de contacto centrados ===== */
+footer { background: var(--verde-oscuro); color: var(--blanco); text-align: center; padding: 40px 5%; }
+footer p { margin: 0 0 6px; font-size: 1.05rem; }
+footer .fa-heart { color: var(--rosado); }
+footer small { opacity: 0.85; }
+.redes-sociales { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; }
+.redes-sociales a { color: var(--blanco); text-decoration: none; }
+.redes-sociales a:hover { color: var(--rosado); }
+.redes-sociales i { margin-right: 6px; }
+
+/* ===== CELULAR: en pantallas de 800px o menos, el diseño pasa a una sola columna ===== */
+@media (max-width: 800px) {
+    section { padding: 56px 6%; }
+    header { justify-content: center; }
+    .contenido-nosotros { grid-template-columns: 1fr; }
+    .imagen-circular { order: -1; width: min(100%, 300px); }  /* la imagen sube arriba del texto */
+    .texto-nosotros h2 { text-align: center; }
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--crema);
-    color: var(--texto);
-    line-height: 1.6;
-}
-
-/* ========================================
-   2. MENU DE NAVEGACION
-======================================== */
-
-header {
-    background-color: var(--cafe);
-    color: var(--blanco);
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.marca {
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-nav {
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--caramelo);
-}
-
-/* ========================================
-   3. ESTILOS GENERALES DE LAS SECCIONES
-======================================== */
-
-section {
-    padding: 80px 7%;
-    scroll-margin-top: 85px;
-}
-
-h1, h2, h3 {
-    color: var(--cafe);
-    line-height: 1.2;
-}
-
-p {
-    margin-bottom: 16px;
-}
-
-/* ========================================
-   4. PIE DE PAGINA
-======================================== */
-
-footer {
-    background-color: var(--cafe);
-    color: var(--blanco);
-    padding: 30px 7%;
-    text-align: center;
-}
-
-footer p {
-    margin-bottom: 8px;
-}
-
-/* ========================================
-   5. ADAPTACION A CELULARES
-======================================== */
-
-@media (max-width: 700px) {
-    header {
-        justify-content: center;
-        text-align: center;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 14px;
-    }
-
-    section {
-        padding: 50px 6%;
-    }
-
-    .marca {
-        font-size: 1.2rem;
-    }
-    
-}
+/* Accesibilidad: sin desplazamiento suave si la persona desactivó las animaciones en su equipo */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
