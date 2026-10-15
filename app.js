@@ -208,6 +208,14 @@ for (const producto of recetas) {
                         `).join("")}
                     </ul>
                 </div>
+                                <details class="preparacion">
+                    <summary>Ver preparación</summary>
+                    <ol>
+                        ${producto.preparacion.map(paso => `
+                            <li>${paso}</li>
+                        `).join("")}
+                    </ol>
+                </details>
             </div>
         </li>
     `;
